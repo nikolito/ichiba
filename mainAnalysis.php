@@ -13,7 +13,7 @@ $recordBase = file($workDir."ogiMain_sample.csv", FILE_IGNORE_NEW_LINES | FILE_S
 
 ///////////////////////////////////////////
 // Settling a column having a title field for MeCab. 
-// In ogiMain-sample.csv, "title" field is 5th column. Therefore, array number is 4.
+// In ogiMain_sample.csv, "title" field is 5th column. Therefore, array number is 4.
 
 foreach($recordBase as $recBVal) {
 	$rbval = explode(',', $recBVal);
