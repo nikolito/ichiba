@@ -56,10 +56,10 @@ for($rn=$rnBase; $rn<count($record); $rn++) {
 
 
 /////////////////////////////////////////
-// Storing data in a MeCab analyzed file
+// Storing data in a MeCab analyzed file if you want.
 
-$mdatafile = $workDir."mtextdata".date('YmdHis').'.txt';
-file_put_contents($mdatafile, implode("\n", $mdatavals));
+#$mdatafile = $workDir."mtextdata".date('YmdHis').'.txt';
+#file_put_contents($mdatafile, implode("\n", $mdatavals));
 #readfile($mdatafile); exit;
 
 $jinmeiF = file($workDir."userDic/jinmei.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
