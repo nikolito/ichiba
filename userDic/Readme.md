@@ -1,3 +1,3 @@
-# Creating MeCab a user dictionary.
+# Creating a user dictionary of MeCab.
 
-This directory is a work place for a user dictionary from Ogi Nikki titles.
+This directory is a work place for a user dictionary for analyzing Ogi Nikki titles.
