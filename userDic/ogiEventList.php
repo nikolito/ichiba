@@ -1,5 +1,5 @@
 <?php 
-$workDir = "/your-directory/ogiNikki/";
+include_once "settings.php";
 $data = file($workDir."userDic/event.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $data2 = file($workDir."userDic/termsKomonjo.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
