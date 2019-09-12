@@ -1,5 +1,5 @@
 <?php 
-$workDir = "/home/yoshiga/ogiNikki/";
+$workDir = "/your-directory/ogiNikki/";
 $hanseki1 = file_get_contents($workDir."userDic/ogiNabeshima.xml", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $hanseki2 = file_get_contents($workDir."userDic/honNabeshima.xml", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $hanseki3 = file_get_contents($workDir."userDic/hasuNabeshima.xml", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
