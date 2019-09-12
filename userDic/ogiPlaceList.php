@@ -1,5 +1,5 @@
 <?php
-$wordDir = "/home/yoshiga/ogiNikki/";
+$wordDir = "/your-directory/ogiNikki/";
 $data1 = file($wordDir."userDic/place.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $data2 = file($wordDir."userDic/placeSaga.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $data3 = file($wordDir."userDic/placeChakuto.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
