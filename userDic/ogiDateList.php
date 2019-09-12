@@ -1,5 +1,5 @@
 <?php
-$workDir = "/your-directory/ogiNikki/";
+include_once "settings.php";
 $data = file($workDir."userDic/date.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 foreach ($data as $val) {
