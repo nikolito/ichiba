@@ -19,7 +19,7 @@ $dataval = '';
 if (is_writable($datafile)) {
 	file_put_contents($datafile, $list, LOCK_EX);
 } else {
-	trigger_error("ファイルを開ける状態ではありません。");
+	trigger_error("Failed to open files.");
 }
 
 ?>
