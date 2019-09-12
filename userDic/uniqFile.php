@@ -1,5 +1,5 @@
 <?php
-	$workDir = "/your-directory/ogiNikki/";
+	include_once "settings.php";
 	include_once $workDir."function.php";
 	sortUniqueFile($workDir."userDic/date.csv");
 	sortUniqueFile($workDir."userDic/place.csv");
