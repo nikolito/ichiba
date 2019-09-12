@@ -1,9 +1,10 @@
 <?php
 	// makeOgiDic.php: MeCab user dictionary creation
 	// Creating and updating entity lists.
+	// Refer to settings.php and change pathes as you want.
+	// Check php and mecab-dict-index commands below, too.
 	
-	$workDir = "/your-directory/ogiNikki/";
-	$mecabDir = "/your-mecab-directory/";
+	include_once "settings.php";
 	
         // Removing dubbed words.
 	system("/usr/bin/php ".$workDir."uniqFile.php;");
