@@ -12,10 +12,9 @@ $recordBase = file($workDir."ogiMain_sample.csv", FILE_IGNORE_NEW_LINES | FILE_S
 
 
 ///////////////////////////////////////////
-// Settling tags for NEE
-// finding MeCab flags. 
+// Settling a column having a title field for MeCab. 
+// In ogiMain-sample.csv, "title" field is 5th column in ogiMain data. Therefore, array number is 4.
 
-// "title" field is 5th column in ogiMain data. Therefore, array number is 4.
 foreach($recordBase as $recBVal) {
 	$rbval = explode(',', $recBVal);
 	$record[] = $rbval[4]; // Change number for actual column number on your data.
