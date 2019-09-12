@@ -6,7 +6,6 @@
 $workDir = "/your_directory/ogiNikki/";
 
 include_once $workDir.'function.php';
-include_once $workDir.'dbsetting.php';
 
 $url = 'https://your_domain/ogiNikki/';
 
