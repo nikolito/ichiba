@@ -3,11 +3,10 @@ $workDir = "/your-directory/ogiNikki/";
 $data = file($workDir."userDic/date.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 foreach ($data as $val) {
-	$valcomma = explode(",", $val);
-	#print $valcomma[0];
+	$valArray = explode(",", $val);
+	
 	// Setting values for the dictionary without cost values.
-	#$list[] =  $valcomma[0].",4785,4785,7996,名詞,普通名詞,一般,*,*,*,".mb_convert_kana(@$valcomma[1], "C").",".$valcomma[0].",".$valcomma[0].",".mb_convert_kana(@$valcomma[1], "C").",".$valcomma[0].",".mb_convert_kana(@$valcomma[1], "C").",和,*,*,*,*,OGI_DATE";
-	$list[] =  $valcomma[0].",,,,名詞,普通名詞,一般,*,*,*,".mb_convert_kana(@$valcomma[1], "C").",".$valcomma[0].",".$valcomma[0].",".mb_convert_kana(@$valcomma[1], "C").",".$valcomma[0].",".mb_convert_kana(@$valcomma[1], "C").",和,*,*,*,*,OGI_DATE"."\n";
+	$list[] =  $valArray[0].",,,,名詞,普通名詞,一般,*,*,*,".mb_convert_kana(@$valcomma[1], "C").",".$valcomma[0].",".$valcomma[0].",".mb_convert_kana(@$valcomma[1], "C").",".$valcomma[0].",".mb_convert_kana(@$valcomma[1], "C").",和,*,*,*,*,OGI_DATE"."\n";
 }
 	
 $datafile = $workDir."userDic/ogiDateNoC.csv";
