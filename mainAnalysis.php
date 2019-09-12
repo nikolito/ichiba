@@ -5,11 +5,9 @@
 
 $workDir = "/your_directory/ogiNikki/";
 
-include_once $workDir.'function.php';
-
 $url = 'https://your_domain/ogiNikki/';
 
-//ogiMain CSV data (https://www.dl.saga-u.ac.jp/ogiNikki) 
+//ogiMain CSV data (https://www.dl.saga-u.ac.jp/ogiNikki) : You can download newer data.
 $recordBase = file($workDir."ogiMain_sample.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 
@@ -17,7 +15,7 @@ $recordBase = file($workDir."ogiMain_sample.csv", FILE_IGNORE_NEW_LINES | FILE_S
 // Settling tags for NEE
 // finding MeCab flags. 
 
-// "title" field is 5th column in ogiMain data.
+// "title" field is 5th column in ogiMain data. Therefore, array number is 4.
 foreach($recordBase as $recBVal) {
 	$rbval = explode(',', $recBVal);
 	$record[] = $rbval[4]; // Change number for actual column number on your data.
@@ -56,28 +54,6 @@ for($rn=$rnBase; $rn<count($record); $rn++) {
 #print count($mtextarray); exit;
 #print_r($mdatavals); exit;
 
-/////////////////////////////////
-// Saving All MeCab analized data 
-
-$type = "ALL";
-
-$rn = $snum = $osnum = 0;
-for ($i = 0; $i <= count($mtextarray); $i++) {
-	$rn = $rnBase + $i;
-	for ($e = 0; $e < @count($mtextarray[$rn]); $e++) {
-		$snum = $e;
-		for ($f = 0; $f < @count($mtextarray[$rn][$e]); $f++) {
-			$osnum = $f;
-	    		for ($j = 0; $j < count($mtextarray[$rn][$e][$f]); $j++) {
-				$tangoarray = explode("\t", $mtextarray[$rn][$e][$f][$j]);
-				$element = '';
-				$element = @str_replace(",", "::", $tangoarray[1]);
-				$data_all[] = $type.",".($rn + 1).",".$snum.",".$osnum.",".$j.",".$j.",".$tangoarray[0].",".$element;
-			}
-		}
-	}
-}
-#print_r($data_all); exit;
 
 /////////////////////////////////////////
 // Storing data in a MeCab analyzed file
@@ -171,5 +147,7 @@ $data2 = array_unique($data, SORT_STRING);
 $indexfile = $workDir."oginikki".date('YmdHis').'.index';
 file_put_contents($indexfile, implode("\n", $data2));
 readfile($indexfile);
+
+// Use $indexfile on your database or tools! 
 
 ?>
