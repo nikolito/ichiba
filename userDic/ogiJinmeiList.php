@@ -1,17 +1,18 @@
-<?php //xmlデータからMecab用データを作成する
-$hanseki1 = file_get_contents("/home/yoshiga/ogiNikki/familyChart/ogiNabeshima.xml", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-$hanseki2 = file_get_contents("/home/yoshiga/ogiNikki/familyChart/honNabeshima.xml", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-$hanseki3 = file_get_contents("/home/yoshiga/ogiNikki/familyChart/hasuNabeshima.xml", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+<?php 
+$workDir = "/home/yoshiga/ogiNikki/";
+$hanseki1 = file_get_contents($workDir."userDic/ogiNabeshima.xml", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$hanseki2 = file_get_contents($workDir."userDic/honNabeshima.xml", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$hanseki3 = file_get_contents($workDir."userDic/hasuNabeshima.xml", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $hansekiArray = array('OGI_JINMEI' => $hanseki1, 'OGI_JINMEI' => $hanseki2, 'OGI_JINMEI' => $hanseki3);
 
-$familynames = file("/home/yoshiga/ogiNikki/userDic/familyNames.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$familynames = file($workDir."userDic/familyNames.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $fmPattern = "/(".implode(")|(", $familynames).")/u";
 #print $fmPattern;
 #exit;
 
-$jinmei1 = file("/home/yoshiga/ogiNikki/userDic/jinmei.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-$jinmei2 = file("/home/yoshiga/ogiNikki/userDic/jinmeiSaga.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-$jinmei3 = file("/home/yoshiga/ogiNikki/userDic/jinmeiOgi.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$jinmei1 = file($workDir."userDic/jinmei.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$jinmei2 = file($workDir."userDic/jinmeiSaga.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$jinmei3 = file($workDir."userDic/jinmeiOgi.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $jinmeiAll = array_merge($jinmei1, $jinmei2, $jinmei3);
 sort($jinmeiAll);
 $jinmei = array_unique($jinmeiAll);
@@ -30,16 +31,13 @@ foreach($hansekiArray as $hanmei => $hansekiName) {
 		} else {
 			preg_match($fmPattern, $name, $fname);
 			if (@$fname[0] != "") {
-				#$data[] = $fname[0].",4788,4788,16,名詞,固有名詞,人名,姓,*,*,".$yomi.",".$yomi.",".$fname[0].",".$yomi.",".$fname[0].",".$yomi.",固,*,*,*,*,".$hanmei;
 				$data[] = $fname[0].",,,,名詞,固有名詞,人名,姓,*,*,".$yomi.",".$yomi.",".$fname[0].",".$yomi.",".$fname[0].",".$yomi.",固,*,*,*,*,".$hanmei."\n";
 				
 				$underName = str_replace($familynames, '', $name);
 				if ($underName != '氏' || $underName != '子' || $underName != '娘') {
-					#$data[] = $underName.",4788,4788,16,名詞,固有名詞,人名,名,*,*,".$yomi.",".$yomi.",".$underName.",".$yomi.",".$underName.",".$yomi.",固,*,*,*,*,".$hanmei;
 					$data[] = $underName.",,,,名詞,固有名詞,人名,名,*,*,".$yomi.",".$yomi.",".$underName.",".$yomi.",".$underName.",".$yomi.",固,*,*,*,*,".$hanmei."\n";
 				}
 			}
-			#$data[] = $name.",4788,4788,16,名詞,固有名詞,人名,一般,*,*,".$yomi.",".$yomi.",".$name.",".$yomi.",".$name.",".$yomi.",固,*,*,*,*,".$hanmei;
 			$data[] = $name.",,,,名詞,固有名詞,人名,一般,*,*,".$yomi.",".$yomi.",".$name.",".$yomi.",".$name.",".$yomi.",固,*,*,*,*,".$hanmei."\n";
 		}
 	}
@@ -51,53 +49,45 @@ foreach($hansekiArray as $hanmei => $hansekiName) {
 		} else {
 			preg_match($fmPattern, $altName, $fname);
 			if (@$fname[0] != "") {
-				#$data[] = $fname[0].",4788,4788,16,名詞,固有名詞,人名,姓,*,*,".$yomi.",".$yomi.",".$fname[0].",".$yomi.",".$fname[0].",".$yomi.",固,*,*,*,*,".$hanmei;
 				$data[] = $fname[0].",,,,名詞,固有名詞,人名,姓,*,*,".$yomi.",".$yomi.",".$fname[0].",".$yomi.",".$fname[0].",".$yomi.",固,*,*,*,*,".$hanmei."\n";
 				
 				$underName = str_replace($familynames, '', $altName);
 				if ($underName != '氏' || $underName != '子' || $underName != '娘') {
-					#$data[] = $underName.",4788,4788,16,名詞,固有名詞,人名,名,*,*,".$yomi.",".$yomi.",".$underName.",".$yomi.",".$underName.",".$yomi.",固,*,*,*,*,".$hanmei;
 					$data[] = $underName.",,,,名詞,固有名詞,人名,名,*,*,".$yomi.",".$yomi.",".$underName.",".$yomi.",".$underName.",".$yomi.",固,*,*,*,*,".$hanmei."\n";
 				}
 			}
-			#$data[] = $altName.",4788,4788,16,名詞,固有名詞,人名,一般,*,*,".$yomi.",".$yomi.",".$altName.",".$yomi.",".$altName.",".$yomi.",固,*,*,*,*,".$hanmei;
 			$data[] = $altName.",,,,名詞,固有名詞,人名,一般,*,*,".$yomi.",".$yomi.",".$altName.",".$yomi.",".$altName.",".$yomi.",固,*,*,*,*,".$hanmei."\n";
 		}
 	}
 	
 	foreach($hanseki->xpath('//altName/first') as $altName1) {
 		if ($altName1 != "") {
-			#$data[] = $altName1.",4788,4788,16,名詞,固有名詞,人名,一般,*,*,".$yomi.",".$yomi.",".$altName1.",".$yomi.",".$altName1.",".$yomi.",固,*,*,*,*,".$hanmei;
 			$data[] = $altName1.",,,,名詞,固有名詞,人名,一般,*,*,".$yomi.",".$yomi.",".$altName1.",".$yomi.",".$altName1.",".$yomi.",固,*,*,*,*,".$hanmei."\n";
 		}
 	}
 	
 	foreach($hanseki->xpath('//altName/other') as $altName2) {
 		if ($altName2 != "") {
-			#$data[] = $altName2.",4788,4788,16,名詞,固有名詞,人名,一般,*,*,".$yomi.",".$yomi.",".$altName2.",".$yomi.",".$altName2.",".$yomi.",固,*,*,*,*,".$hanmei;
 			$data[] = $altName2.",,,,名詞,固有名詞,人名,一般,*,*,".$yomi.",".$yomi.",".$altName2.",".$yomi.",".$altName2.",".$yomi.",固,*,*,*,*,".$hanmei."\n";
 		}
 	}
 }
 
 foreach($jinmei as $jinmeiVal) {
-	#print $jinmeiVal;
 	if (trim($jinmeiVal) != "") {
-		#$data[] = $jinmei2.",4788,4788,16,名詞,固有名詞,人名,一般,*,*,".$yomi.",".$yomi.",".$jinmei2.",".$yomi.",".$jinmei2.",".$yomi.",固,*,*,*,*,OGI_JINMEI";
 		$data[] = $jinmeiVal.",,,,名詞,固有名詞,人名,一般,*,*,".$yomi.",".$yomi.",".$jinmeiVal.",".$yomi.",".$jinmeiVal.",".$yomi.",固,*,*,*,*,OGI_JINMEI"."\n";
 	}
 }
 
 sort($data);
 $dataJinmei = array_unique($data);
-#print_r($dataJinmei); exit;
 
 //コスト無しファイル
-$datafile = '/home/yoshiga/ogiNikki/userDic/ogiJinmeiNoC.csv'; 
+$datafile = $workDir."userDic/ogiJinmeiNoC.csv"; 
 if (is_writable($datafile)) {
 	file_put_contents($datafile, $dataJinmei, LOCK_EX);
 } else {
-	trigger_error("ファイルを開ける状態ではありません。");
+	trigger_error("Failed to open the file.");
 }
 
 ?>
