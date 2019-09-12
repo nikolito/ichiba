@@ -10,10 +10,6 @@ include_once $workDir.'dbsetting.php';
 
 $url = 'https://your_domain/ogiNikki/';
 
-//field data with MeCab flags
-//You can choose which fields you want to mecab
-$field = file($workDir."fieldDataOgiNikki.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-
 //ogiMain CSV data (https://www.dl.saga-u.ac.jp/ogiNikki) 
 $recordBase = file($workDir."ogiMain_sample.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
@@ -25,7 +21,7 @@ $recordBase = file($workDir."ogiMain_sample.csv", FILE_IGNORE_NEW_LINES | FILE_S
 // "title" field is 5th column in ogiMain data.
 foreach($recordBase as $recBVal) {
 	$rbval = explode(',', $recBVal);
-	$record[] = $rbval[4]; // Change number for actual column number on you data.
+	$record[] = $rbval[4]; // Change number for actual column number on your data.
 }
 #print_r($record); exit;
 
