@@ -1,4 +1,4 @@
-<?php //Genreのコストファイル生成
+<?php 
 $workDir = "/your-directory/ogiNikki/";
 $data = file($workDir."userDic/event.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $data2 = file($workDir."userDic/termsKomonjo.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
