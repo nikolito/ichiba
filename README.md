@@ -1,5 +1,8 @@
 This page is under construction.
 
+# Purpose
+I have been trying deploying named entitiy extraction and constructing linked data from digital humanities related data for a couple of years. This repository shares you how to do them. 
+
 # Ogi Nikki
 Ogi Nikki is business records of Ogi Domain, called Ogi Han, at Edo era  (1600 - 1868) in Saga, Japan.
 Ogi Han was one of feudal domains based on a tax system in Edo era and settled as an affiliation of [Saga Domain](https://en.wikipedia.org/wiki/Saga_Domain).
