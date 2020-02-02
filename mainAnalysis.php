@@ -1,6 +1,6 @@
 <?php 
 // mainAnalysis.php: Deploying morphological analysis, named entity extraction and storing data.
-// PHP newer than v7 and a morphological analysis tool, MeCab is required for this script.
+// PHP newer than v7 and a morphological analysis tool, MeCab are required for this script.
 // Please install them on your system.
 
 $workDir = "/your_directory/ogiNikki/";
