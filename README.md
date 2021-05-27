@@ -1,12 +1,12 @@
 # Purpose
 I have been trying to deploy named entity extraction and constructing linked data from digital-humanities-related data for a couple of years. This repository shares you how to do them. 
 
-# Ogi Nikki
+# Ogi-han Nikki
 Ogi Nikki is business records of Ogi Domain, called Ogi Han, at Edo era  (1600 - 1868) in Saga, Japan.
-Ogi Han was one of feudal domains based on a tax system in Edo era and settled as an affiliation of [Saga Domain](https://en.wikipedia.org/wiki/Saga_Domain).
-The number of titles that represents the records is assumed about 100,000. The records contain when, where, who and what happened in Ogi Han. 
-The original records are hand-writing, called Kuzushi-ji. The Center for Regional Culture and History, Saga University, has been translating into Japanese texts. The grammar of the texts is called "Sourou bun", quite different from the recent Japanese one. Sourou bun was mainly used for business records and official papers in Edo era.
-You can browse the results of the translation at [a digital archive](https://www.dl.saga-u.ac.jp/ogiNikki/) which is also constructed by the center.
+Ogi-han was one of feudal domains based on a tax system in Edo era and settled as an affiliation of [Saga Domain](https://en.wikipedia.org/wiki/Saga_Domain).
+The number of titles that represents the records is assumed about 74,000. The records contain when, where, who and what happened in Ogi-han. 
+The original records are hand-writing, called Kuzushi-ji. The Center for Regional Culture and History, Saga University, has been transcripting into Japanese texts. The grammar of the texts is called "Sourou bun", quite different from the recent Japanese one. Sourou bun was mainly used for business records and official papers in Edo era.
+You can browse the results of the transcription at [a digital archive](https://crch.saga-u.ac.jp/nikki/) which is also constructed by the center.
 
 # OgiNikki Projects
 By 2019, more than 30,000 titles are converted into texts and stored in the archive.
